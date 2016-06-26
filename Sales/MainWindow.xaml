@@ -5,8 +5,52 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sales"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="売上管理" Height="550" Width="800" ResizeMode="CanMinimize">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" HorizontalAlignment="Left">
+            <ComboBox Margin="4" Width="60"></ComboBox>
+            <TextBlock Margin="4" Text="年度"></TextBlock>
+            <ComboBox Margin="4" Width="200"></ComboBox>
+            <Button Margin="4" Content="読み込み"></Button>
+        </StackPanel>
+        <DataGrid Grid.Row="1" Margin="4" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Width="60"
+                    Header="月"
+                    ElementStyle="{StaticResource CellStyle}"></DataGridTextColumn>
+                <DataGridTextColumn
+                    Width="120*"
+                    Header="目標額"
+                    ElementStyle="{StaticResource CellStyle}"></DataGridTextColumn>
+                <DataGridTextColumn
+                    Width="120*"
+                    Header="実績額"
+                    ElementStyle="{StaticResource CellStyle}"></DataGridTextColumn>
+                <DataGridTextColumn
+                    Width="120*"
+                    Header="差額"
+                    ElementStyle="{StaticResource CellStyle}"></DataGridTextColumn>
+                <DataGridTextColumn
+                    Width="120*"
+                    Header="差額累計"
+                    ElementStyle="{StaticResource CellStyle}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Row="2">
+            <Button Content="一覧..."></Button>
+            <Button Content="印刷..."></Button>
+            <Button Content="インポート..."></Button>
+            <Button Content="エクスポート..."></Button>
+            <Button Content="閉じる" Click="Button_Click"></Button>
+            <TextBlock Width="32"></TextBlock>
+            <Button Content="ヘルプ..."></Button>
+            <Button Content="バージョン..."></Button>
+        </StackPanel>
     </Grid>
 </Window>
